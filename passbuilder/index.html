@@ -1,0 +1,115 @@
+Conversation Log
+add contact info phone +371 26858216 email niks@leonen.co crafted by Niks Ļeoņenko
+
+Added the contact info and attribution to the website footer and refreshing http://localhost:8765/ in the browser.
+
+Added the contact and attribution details to the footer in index.html and styles.css:
+
+Credit: Crafted by Niks Ļeoņenko
+Phone: +371 26858216 (tel:+37126858216)
+Email: niks@leonen.co (mailto:niks@leonen.co)
+
+Reloaded http://localhost:8765/ in the open browser tab (http://localhost:8765 verified loaded with no blocked origins).
+
+im trying to obtain Google Wallet API publishing access, do some research and with that in mind make any adjustments to the website
+
+Added Privacy Policy (privacy.html) and Terms of Service & Acceptable Use (terms.html) pages aligned with Google Wallet API publishing access requirements, and refreshing http://localhost:8765/ in the browser.
+
+To obtain Google Wallet API Publishing Access (moving out of Demo Mode / [TEST ONLY] in the Google Pay & Wallet Console), Google's review checks:
+
+Completed Business & Payments Profile in the Google Pay & Wallet Console.
+Working Technical Integration (at least one Pass Class & Object tested in Demo Mode, plus registered Android package name + SHA-1 in App Permissions if using PayClient).
+Legitimate Public Website matching your business/developer profile, clearly describing the product and pass types, with working support contact info.
+Public, HTML Privacy Policy & Acceptable Use Compliance disclosing operator identity, data handling/local storage, third-party transmission to Google Wallet, data retention/deletion, and compliance with the Google Wallet API Acceptable Use Policy (AUP).
+Adjustments Made to the Website
+privacy.html: Added a Google API User Data Policy–compliant Privacy Policy identifying Niks Ļeoņenko (niks@leonen.co, +371 26858216) as operator, explaining local-first on-device storage (SharedPreferences, local ZXing decoding, on-device RS256 signing), direct transmission to Google LLC when saving passes, and data retention/deletion.
+terms.html: Added a Terms of Service & Acceptable Use page outlining authorized pass issuance and Google Wallet API AUP compliance.
+index.html: Added a Privacy link in the top navigation bar and prominent Privacy Policy and Terms & AUP links in the footer alongside your contact info (+371 26858216, niks@leonen.co).
+
+Verified http://localhost:8765/, http://localhost:8765/privacy.html, and http://localhost:8765/terms.html load cleanly in the open browser (http://localhost:8765 verified with no blocked origins).
+
+update the website to be one file please html css js all in one
+
+Consolidated HTML, CSS, JavaScript, the app icon, and the Privacy Policy & Terms views into a single standalone index.html and verifying in the browser.
+
+Consolidated the entire website into a single self-contained index.html (52,091 bytes) and removed the separate asset/page files (styles.css, app.js, privacy.html, terms.html, icon.png):
+
+All-in-One File: Embeds all M3E CSS (<style>), interactive JavaScript (<script>), the base64-encoded app icon (data:image/png;base64,...), and hash-routed views for Home (#home), Privacy Policy (#privacy), and Terms of Service & Acceptable Use (#terms).
+Verified: Confirmed http://localhost:8765/ loads cleanly in the open browser tab (http://localhost:8765 verified with no blocked origins).
+my domain is leonen.co and i want to serve this as leonen.co/passbuilder would that be possible
+
+Yes—it works out of the box at https://leonen.co/passbuilder.
+
+Because index.html is a single self-contained file:
+
+All CSS, JavaScript, and the Base64 app icon are embedded directly inside index.html, so there are no external asset paths that could break under a /passbuilder subpath.
+All navigation (#home, #features, #pass-types, #how-it-works, #privacy, #terms) uses hash fragments, which work identically at https://leonen.co/passbuilder#privacy and https://leonen.co/passbuilder#terms.
+How to Deploy It
+Standard web root (cPanel / Apache / Nginx / S3 / Netlify / Cloudflare Pages): Place the file at passbuilder/index.html inside your leonen.co site root. Both https://leonen.co/passbuilder and https://leonen.co/passbuilder/ will serve it automatically.
+For Google Wallet API Publishing Access:
+Website URL: https://leonen.co/passbuilder
+Privacy Policy URL: https://leonen.co/passbuilder#privacy (if a console form requires a path without #, you can also copy or alias the same index.html or a dedicated privacy.html at https://leonen.co/passbuilder/privacy).
+give me the html file
+
+Here is the standalone single-file HTML:
+
+index.html
+Path: c:\Users\1simp\Downloads\Google Wallet Pass Generator\website\index.html
+
+You can upload that file directly to your leonen.co host as passbuilder/index.html.
+
+no paste the code here
+html
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-palette="blue">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NL Pass Builder — Material 3 Expressive Google Wallet Pass Generator</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABGOSURBVHhe7Z13rBXFF8f5w94r9gZi7w1UsEMQu6KxxRaN0RgLtth7S+APEsXoHwIahcQYGxoFe++9YkWs2EXFPr98JpmXvfN29+59D+7vzp7vJzkh8O4u786e78yZM2dm+zghDNMn/gchLCEBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTCMBCNNIAMI0EoAwjQQgTGNaAH///bf7888/3R9//GHS+O60gWXMCOCXX35xjz32mBs9erQ75phj3LBhw9yQIUO8DR482KSF709b0CZjxozxbTR79uy4+WpL7QXwzjvvuPPOO88NHDjQ9e3b1y2xxBJu6aWXdssvv7z/u6yvbwvahLbh74MGDXIXXHCBe++99+LmrB21FcDnn3/uTjvtNLfmmmu6xRdf3K2wwgpu9dVXd2ussYasxGgjRECbrbXWWu7MM890X331Vdy8taGWArj11lvdhhtu6B/iKqus0u0hy6rZyiuv7Ntwk002cbfffnvczLWgVgJgYnf66ae7pZZayvdi9P7xQ5W1brTlMsss484//3z3zz//xM2eNLURAJPcQw891C266KJutdVW6/YQZb2zVVdd1bftscce6+bMmRM3f7LUQgC//vqrGzlypFtsscW6PTjZ3DPmB4jgqKOOcn/99Vf8GJIkeQH8+++/vleS87fHEAFtPWrUqPhRJEnyAiCvzwPpSYaHa2SttxshJinTm266KX4cyZG0AJ577jmf3mwl08MDZ1K35JJL+ondcsst5/PgFo3vThuQNKAd47Yqs5VWWsn/yTpLyiQrAJbxd999d7+AUyXbw2d46Msuu6zbYYcd3LnnnusmTZrkHn74YffMM8+4Z5991pTxnadOnepuueUWnzljoZC2RAhV25NOhMTDf//9Fz+eZEhWAOSlGYarDuE8rO222847fZ2yGHOLn3/+2d14441u00039UKI2y/PaHtGEDqRVElSAGQghg8f7nvz+KHExkPC+clcfP/99/GtRMSMGTPc3nvv7dssbss8QyyHHHJIfJtkSFIADN/E8VXy/YwSJ554os8WiWr8/vvv7sADD/QiaBYOsT5AJ5Nq3VCSAqBQiyX6+GFkjQfH8Lznnnsq5OkB3377rdt22239vClu29joZMaOHRvfIgmSEwD164Q/ZDDiB5E1eibs9ddfj28hKvLggw/6dm420hIGHXbYYfHlSZCcAGbNmuUL3SjUih9E1kjtnXTSSfHlokVYYWckjds3ayuuuKLbaqut/Ip8aiQngI8//tits846pbl/YlImyA888EB8uWgRFruaTYjpjNZff/0ky6aTE8Dbb7/t69TLBMADYZRI8YF0GrQ3IVBZGMSzoFOic0qN5ATw5ptvegEQ38cPIhiLOTvuuKPPZoje8fXXX7uNNtqoNOREAGuvvbabPn16fHnHU0sBMHHbY449clcov/nmG/fiiy+6O+64w02cONGNGzfOZzAsGgtfLAwSKtLT58XwP/30k88GlZVKIID+/fu7d999N76846mtAPbaa6+uaz744AN3/fXXu/3339/vbqI3I3MRjAmzReO7M8FlvkSbUg5x9NFHu8mTJ/uOAsi6sYIuAXQIVQWw7777+s+efPLJ/vPkqnnYFHGFeLZqGUWdLVSE0p44eRAHc6hLL73UvfXWW752SgLoEKoIAAdfb731/EMhg1E2YZblGx0Fbbfuuuv6CW5ZZyEBtJEqAsAQgRy/90YblmWAwmckgDZRVQCy9pkE0EYkgM4zCaCNSACdZxJAG5EAOs8kgDZytwTAQ2NPASlT8uAWje+fTQv31CSANtIbAYQiORaAWLrnZOQRI0a4Aw44wJyxKLjLLrv4LZAsDJLyDBvdWzUJoI30RABsjuHh4viUSEyYMMG9//77fmO9ZTjmkFqfp59+2p111lm+5odFsFZHBAmgjbQqAJyfMGfAgAHe8bU1spiZM2f67aOsmOPU2e2QZecISQBtpBUBhKNQGOZfeeWV+FaigPHjxze8N4DwKNQNhb8HkUgAbaYVARD2IIKXXnopvo1oAsWDjJqHH364u/rqq/3oyVE0bJC57LLL/KZ5nJ6QiR1hzKkkgDbQigB4ONdee218C1ERNsaXwTzqkksu6SqUkwDaQFUBMITvvPPO8eViHnDdddd5EaR4TGJtBUBqb+utt/YlvVOmTHGffvqpyQnwd99957744gv//oSeQrbsyy+/9PsqyBrFG434+a677prkPKu2AiD2Z3IWJmyU9HKW6DnnnON3gzF811UQP/74o9/xxRoHqU1Kmrfcckt/gtttt91W+dWotBEvGGR7KeXlxPlsfmeH2H333dfwWc4I5bDi1KitALJG6g4xkA4NGQ0mcLvttps/GJZ3ihG/8oql1Hn++ee9g3JkPIt+jIQYE1XmRGwM4ujDZie5MQmmE+E+hJPcgzZceOGF3dChQ90nn3zS8Hm2mSK81DAhgDzjYZLmC4LgYe+0007+LCH2Cr/66qvJbarnkNpwIl78fTF+Fo6G59CrIsj6cPJevDLMv+23335+n3BdMCuArIUtgTgHvSQOwmooe2GPP/54d8MNN/hUam/i6HnNQw895L8Los47z5N/Y6JKT37vvffGl3fBz+gQQo4/GM5P+QSnSNcJCaDAuH/YI4sgcJxtttnGnzJNapUDeplgdgLTpk3revFHM+e/55574su7+O233/z+X0Kn7PXB+Zv1/FXnFp2EBFDRGBFwInpH4mhi6i222MKfiTlmzBj3yCOPNM2bzwsIe3rj/Fmn5YUZhE/Zcge+J4thZaMfWSA6hrKwqlORAHpoCALnwGEQBA7IkSuskF555ZW+V+Zt9fOSEPYUOT9GKEP2Jg57GL34PbMhzeWXX+6/S/Y7Mg+gWK4I3tXASwr79OnjV4hTQwKYSxacBUEQMpFx2mCDDfzxLKyW0vt+9tln8dfpMc3CnmCEcFdddVV8uf83UqNZKISL3w7Dd2Kke+ONNxo+Czj/cccd5zNF/D9cnxoSwDwynJOwg3iaXpU/WYugHJu1iDvvvNN99OGHPYqbm4U9WWMEYC3g0UcfbbgH//cJJ5zQUBLO32MBhKzSxhtv3HDUPNcF5+d34ToJoA2kIoDYitYiyKmfccYZ/ohCjicsEwQrsPfff39XOrOZ82N8hswQbUaMnl3Ffeqppxpi+2uuuSb3JOisCCh34B6EPUyOw3yB6y6++OKue6WCBPB/siCIeC2C+iVOs+PM0vh0axaaCEd4WzttEN+zyPgsPTVZrLI0JnMKRqq8mn9+N362/fbb+0kxv2/2c4RAd999d3zLjkcC6CALaxFMKIcNG9Z1PmeWJ5980odSRfn+PCOOJ95ntbYIxEWqs+wIRP4/Jv5xmpTfhRdkaCW4DdRZABjOxTyhrKcmVMKh45XaIsOpWeUuctAffvjBHyaczQBVNSb/jC6snqeIBNBBxnfiu+HgWSgyo2aJyTMv+CaDg8PSG8f3yLMQw7MJnqrOLL1xfkK4RRZZxI0aNarhnikhAXSQxce6Q8j142jMFTCcNex2oweu0hZ8lmuzIgjOX/TGzRDyMIKEt8SEdG9I9V544YV+c32qSAAdZIQ/++yzT8P3pew4OGEc8zMJZT5ANonPhJ8XneoQRMBbNl944QW/aFfm/Dg4k+5BgwZ5p+f/4E+OTj/yyCPdE0880fC7pogE0EFGSME+XHL0WUhf4tRx6hNnJCtD9oVcP5PRUPpcNJnl+iCmohCKn5HVwfH5XagBohiQtYSXX37Zb4rJI8WRQALoMGMUOOigg7rtTeA1RrEIEMDmm2/u1w5wTP6NzS+sOnP4VVHvjhW1X9b5P/roo4bfoQgWxUaPHu1fppEaEkAHGjE+xWXxwV3xSBAEENKlpEgxoNaHUKeVyW3W+au88RGRUmPEYh7hUjx5TwEJoAON2J7UIiKIR4KsCJq9DpbqVLaB4tTx/CG2rPPHu70QE5NxdptR9coOOjJSbJUMC3k6F6hNWBBAsCIREA4hkgUWWMD3vmWlyqwnMLHGUeP7BwvOz1bKuOenvTlcgDRqmF+Egj9EGFa0JYA2YUkAGHF8XjhEnM9JDJzUUAavPmU+UCSAsp4fCKlw7rBPgNEnLpWQANqINQGUhUNlhXMQ8vxFIVC25+fYmCIogNtss828CPLuIwG0EWsCCFYkgiIoe2i2yBWcP6/njykTgQTQRqwKAMOZjzjiCN+zl1FlhbeZ87O2EKdByfLkiSDsOps+fXrD51MgOQGQa7YqAAzHZeP6FVdc4VeJ48O9mtX2BOfnxIuisIe9CYiH/yeuHcobCRAAK9LxBDoFkhMAK5OslsbHdlgxnI79AGRj2BmW3eBSNezB+Yt6fk6OI7sT6n3yCuhiEZAd4sS4+HMpkJwAyHlzTB+NHj/guhvOxoIT359anixVw56ynh/nJ1sUCu0wRMAmndi5s+FQ2Dc8e/bshs+kQHICYBLIAgy9VPyQ62xZ5483trQS9syYMaPhWqCGh3P/Q8+fje+DCMpGgvnmm8+fO5oiyQkATj311Ny9q3W1MuevGvZQNFfU88+ZM8dvwllooYUanD97jyIRMBLwc45USZEkBcDG8PgAp7ra3Ah78pw/TqdST0TZRNkoUhQOvfbaa0m+GwCSFACrm6Tw6h4GlfX8VcIeHBbnj88jYvWYMPLxxx9v+PdQO9TsnnkjQaokKQDgfE4Wh+KHVBcrc/5Wwp445ieLxukQCy64oC+ki19qEURQdu86iSBZAbBJY+DAgYU1LikbTsb36k3YM3jw4G7OT8+P84fSCPYeIAKOgs/SrJS6LBxKjWQFAHfddZd/mEVbAFM1MjGsdRQ5fzPHxPnjsIeen6rOcP5Q+Dwi4AjHWARWwqGkBQBkhOoUCjGxxylvvvnmhu9ZNewp6vlj589eF0RgMRxKXgAsvnCIFA8ifrgpGr0/+3uz9T44dLPeODh/3PNTn1Pk/NnrexMOhfIM3imWGskLADiGnHr2OoiAEgdOWcu+nonjydnIHm+Kx0IvPGTIkG7OX9bzx9bTcIjrwvvH2KiTGrUQABDj0gMWDdepGEV+1DnF8X/euwDKnJ
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-palette="blue">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NL Pass Builder — Material 3 Expressive Google Wallet Pass Generator</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --md-primary: #1a73e8;
+      --md-on-primary: #ffffff;
+      --md-primary-container: #d3e3fd;
+      --md-on-primary-container: #041e49;
+      --md-secondary: #535f70;
+      --md-secondary-container: #d7e3f7;
+      --md-on-secondary-container: #101c2b;
+      --md-tertiary: #00639b;
+      --md-tertiary-container: #cee5ff;
+      --md-on-tertiary-container: #001d33;
+      --md-surface: #f9f9ff;
+      --md-surface-container-low: #f2f3fa;
+      --md-surface-container: #ecedf4;
+      --md-surface-container-high: #e6e8ef;
+      --md-surface-container-highest: #e0e2e9;
+      --md-on-surface: #191c20;
+      --md-on-surface-variant: #44474e;
+      --md-outline-variant: #c4c6d0;
+      --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    }
+    [data-theme="dark"] {
+      --md-primary: #a8c7fa;
+      --md-on-primary: #062e6f;
+      --md-primary-container: #0842a0;
+      --md-on-primary-container: #d3e3fd;
+      --md-secondary: #bbc7db;
+      --md-secondary-container: #3b4858;
+      --md-on-secondary-container: #d7e3f7;
+      --md-tertiary: #7fcfff;
+      --md-tertiary-container: #004a77;
+      --md-on-tertiary-container: #cee5ff;
+      --md-surface: #111318;
+      --md-surface-container-low: #191c20;
